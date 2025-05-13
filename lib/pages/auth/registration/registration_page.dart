@@ -1,0 +1,183 @@
+import 'package:flutter/gestures.dart';
+import 'package:flutter/material.dart';
+import 'package:mtest_app/theme/colors/support_colors.dart';
+import 'package:mtest_app/theme/text_styles/text_styles.dart';
+import 'package:mtest_app/utils/constants.dart';
+import 'package:mtest_app/utils/dimensions.dart';
+
+class RegistrationPage extends StatelessWidget {
+  const RegistrationPage({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: _appBar(),
+      body: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Column(
+          children: [
+            Expanded(
+              child: Column(
+                children: [
+                  /// Image secion
+                  _image(),
+                  verSpace(40),
+
+                  /// Title section
+                  _title(),
+                  verSpace(12),
+
+                  /// Description section
+                  _description(),
+                  verSpace(50),
+
+                  /// Sign Up
+                  _signUpButton(),
+                  verSpace(14),
+
+                  /// Login
+                  _loginButton(),
+                ],
+              ),
+            ),
+            _privacyPolicy(),
+          ],
+        ),
+      ),
+    );
+  }
+
+  PreferredSizeWidget _appBar() {
+    return AppBar(
+      leading: const Icon(
+        Icons.arrow_back_ios_new,
+        size: 16,
+      ),
+    );
+  }
+
+  Widget _image() {
+    return Padding(
+      padding: const EdgeInsets.only(top: 30, bottom: 36),
+      child: Image.asset('assets/images/regis.png'),
+    );
+  }
+
+  Widget _title() {
+    return const Text(
+      'Create your \nCoinpay account',
+      style: TextStyles.headlineLarge,
+      textAlign: TextAlign.center,
+    );
+  }
+
+  Widget _description() {
+    return const Text(
+      'Coinpay is a powerful tool that allows you to easily send, receive, and track all your transactions.',
+      style: TextStyle(
+        fontSize: 14,
+      ),
+      textAlign: TextAlign.center,
+    );
+  }
+
+  Widget _signUpButton() {
+    return SizedBox(
+      width: double.infinity,
+      height: 56,
+      child: ElevatedButton(
+        style: ElevatedButton.styleFrom(
+          backgroundColor: SupportColors.blue,
+          shape: const RoundedRectangleBorder(
+            borderRadius: Dimensions.borderRadius50,
+          ),
+          elevation: 0,
+        ),
+        onPressed: () {},
+        child: const Text(
+          'Sign up',
+          style: TextStyle(
+            fontSize: 16,
+            fontWeight: FontWeight.w600,
+            color: Colors.white,
+          ),
+        ),
+      ),
+    );
+  }
+
+  Widget _loginButton() {
+    return SizedBox(
+      width: double.infinity,
+      height: 56,
+      child: ElevatedButton(
+        style: ElevatedButton.styleFrom(
+          backgroundColor: Colors.white,
+          elevation: 0,
+          shape: const RoundedRectangleBorder(
+            borderRadius: Dimensions.borderRadius50,
+            side: BorderSide(
+              color: SupportColors.blue,
+              width: 2,
+            ),
+          ),
+        ),
+        onPressed: () {},
+        child: const Text(
+          'Log in',
+          style: TextStyle(
+            fontSize: 16,
+            fontWeight: FontWeight.w600,
+            color: SupportColors.blue,
+          ),
+        ),
+      ),
+    );
+  }
+
+  Widget _privacyPolicy() {
+    return SafeArea(
+      child: Padding(
+        padding: const EdgeInsets.only(top: 36),
+        child: Center(
+          child: Text.rich(
+            TextSpan(
+              style: const TextStyle(
+                fontWeight: FontWeight.w400,
+                fontSize: 12,
+                height: 1.4,
+              ),
+              children: [
+                const TextSpan(
+                  text: 'By continuing you accept our \n',
+                  style: TextStyle(fontSize: 14),
+                ),
+                TextSpan(
+                  text: 'Terms of Service',
+                  style: const TextStyle(
+                    color: SupportColors.blue,
+                    fontSize: 14,
+                  ),
+                  recognizer: TapGestureRecognizer()..onTap = () {},
+                ),
+                const TextSpan(
+                  text: ' and ',
+                  style: TextStyle(fontSize: 14),
+                ),
+                TextSpan(
+                  text: 'Privacy Policy',
+                  style: const TextStyle(
+                    color: SupportColors.blue,
+                    fontSize: 14,
+                  ),
+                  recognizer: TapGestureRecognizer()..onTap = () {},
+                ),
+              ],
+            ),
+            textAlign: TextAlign.center,
+          ),
+        ),
+      ),
+    );
+  }
+}

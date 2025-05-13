@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mtest_app/theme/colors/support_colors.dart';
+import 'package:mtest_app/utils/dimensions.dart';
 
 // Custom Button Component
 class CustomButton extends StatelessWidget {
@@ -23,8 +24,8 @@ class CustomButton extends StatelessWidget {
         child: ElevatedButton(
           style: ElevatedButton.styleFrom(
             backgroundColor: isEnabled ? SupportColors.blue : Colors.grey,
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(50),
+            shape: const RoundedRectangleBorder(
+              borderRadius: Dimensions.borderRadius50,
             ),
             elevation: 0,
           ),

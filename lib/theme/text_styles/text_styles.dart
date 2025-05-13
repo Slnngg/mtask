@@ -19,14 +19,14 @@ abstract class TextStyles {
   static const displaySmall = TextStyle(
     fontSize: 28,
     height: 38 / 28,
-    fontWeight: FontWeight.w400,
+    fontWeight: FontWeight.w600,
     color: SupportColors.black,
   );
 
   static const headlineLarge = TextStyle(
     fontSize: 24,
     height: 32 / 24,
-    fontWeight: FontWeight.w400,
+    fontWeight: FontWeight.w600,
     color: SupportColors.black,
   );
 

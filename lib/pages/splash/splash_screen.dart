@@ -3,6 +3,9 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:mtest_app/components/custom_button.dart';
 import 'package:mtest_app/pages/splash/controller/splash_controller.dart';
+import 'package:mtest_app/routes/route_names.dart';
+import 'package:mtest_app/theme/text_styles/text_styles.dart';
+import 'package:mtest_app/utils/dimensions.dart';
 
 class SplashScreen extends GetView<SplashController> {
   const SplashScreen({super.key});
@@ -68,7 +71,7 @@ class SplashScreen extends GetView<SplashController> {
               color: controller.currentPage.value == index
                   ? Colors.blue
                   : const Color(0xFFD0D0D0),
-              borderRadius: BorderRadius.circular(19),
+              borderRadius: Dimensions.borderRadius18,
             ),
           ),
         ),
@@ -83,10 +86,7 @@ class SplashScreen extends GetView<SplashController> {
         child: Text(
           controller.splashTitles[controller.currentPage.value],
           textAlign: TextAlign.center,
-          style: const TextStyle(
-            fontSize: 28,
-            fontWeight: FontWeight.w600,
-          ),
+          style: TextStyles.displaySmall,
         ),
       ),
     );
@@ -103,7 +103,7 @@ class SplashScreen extends GetView<SplashController> {
             curve: Curves.easeInOut,
           );
         } else {
-          debugPrint('last');
+          Get.toNamed(RouteNames.registration);
         }
       },
       isEnabled: true,
