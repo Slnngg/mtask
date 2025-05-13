@@ -1,5 +1,7 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:mtest_app/routes/route_names.dart';
 import 'package:mtest_app/theme/colors/support_colors.dart';
 import 'package:mtest_app/theme/text_styles/text_styles.dart';
 import 'package:mtest_app/utils/constants.dart';
@@ -49,9 +51,14 @@ class RegistrationPage extends StatelessWidget {
 
   PreferredSizeWidget _appBar() {
     return AppBar(
-      leading: const Icon(
-        Icons.arrow_back_ios_new,
-        size: 16,
+      leading: InkWell(
+        onTap: () {
+          Get.back();
+        },
+        child: const Icon(
+          Icons.arrow_back_ios_new,
+          size: 16,
+        ),
       ),
     );
   }
@@ -93,7 +100,9 @@ class RegistrationPage extends StatelessWidget {
           ),
           elevation: 0,
         ),
-        onPressed: () {},
+        onPressed: () {
+          Get.toNamed(RouteNames.createAccount);
+        },
         child: const Text(
           'Sign up',
           style: TextStyle(
