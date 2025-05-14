@@ -1,18 +1,14 @@
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get_core/src/get_main.dart';
-import 'package:get/get_navigation/get_navigation.dart';
-import 'package:get/get_state_manager/get_state_manager.dart';
-import 'package:mtest_app/components/otp_input_text_field.dart';
+import 'package:get/get.dart';
+import 'package:mtest_app/components/phone_pass_text_field.dart';
 import 'package:mtest_app/pages/auth/controller/auth_controller.dart';
-import 'package:mtest_app/routes/route_names.dart';
 import 'package:mtest_app/theme/colors/support_colors.dart';
 import 'package:mtest_app/theme/text_styles/text_styles.dart';
 import 'package:mtest_app/utils/constants.dart';
 import 'package:mtest_app/utils/dimensions.dart';
 
-class OtpPage extends GetView<AuthController> {
-  const OtpPage({super.key});
+class AddEmailPage extends GetView<AuthController> {
+  const AddEmailPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -28,19 +24,15 @@ class OtpPage extends GetView<AuthController> {
                 children: [
                   /// Title and description section
                   _titleDesc(),
-                  verSpace(60),
+                  verSpace(18),
 
-                  /// Otp section
-                  const OtpInputTextField(),
-                  verSpace(12),
-
-                  /// Resend secion
-                  _resend(),
+                  /// Email section
+                  _email(),
                 ],
               ),
             ),
 
-            /// Verify button
+            /// Continue button
             _button(context),
           ],
         ),
@@ -67,14 +59,14 @@ class OtpPage extends GetView<AuthController> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          'Confirm your phone',
+          'Add your email',
           style: TextStyles.headlineMedium.copyWith(
             fontWeight: FontWeight.bold,
           ),
         ),
         verSpace(4),
         Text(
-          'We send 6 digits to +976 ${controller.phoneNumber.value}',
+          'This info needs to be accurate with your ID document',
           style: TextStyles.headlineSmall.copyWith(
             fontWeight: FontWeight.w400,
             color: Colors.grey[700],
@@ -84,37 +76,29 @@ class OtpPage extends GetView<AuthController> {
     );
   }
 
-  Widget _resend() {
-    return Center(
-      child: Text.rich(
-        TextSpan(
-          style: const TextStyle(
+  Widget _email() {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          'Email',
+          style: TextStyles.bodyLarge.copyWith(
             fontWeight: FontWeight.w400,
-            fontSize: 12,
-            height: 1.4,
           ),
-          children: [
-            TextSpan(
-              text: 'Didn\'t get a code?',
-              style: TextStyles.headlineSmall.copyWith(
-                fontWeight: FontWeight.w400,
-                color: Colors.grey[700],
-              ),
-            ),
-            TextSpan(
-              text: ' Resend',
-              style: TextStyles.bodyMedium.copyWith(
-                fontWeight: FontWeight.w400,
-                color: SupportColors.blue,
-              ),
-              recognizer: TapGestureRecognizer()
-                ..onTap = () {
-                  controller.clearOtp();
-                },
-            ),
-          ],
         ),
-      ),
+        verSpace(6),
+        PhonePassTextField(
+          prefixIcon:
+              Icon(Icons.email_outlined, size: 20, color: Colors.grey[500]),
+          hintText: 'name@example.com',
+          textInputType: TextInputType.text,
+          isEmail: true,
+          isPassword: false,
+          onChanged: (value) {
+            controller.email.value = value;
+          },
+        ),
+      ],
     );
   }
 
@@ -132,13 +116,13 @@ class OtpPage extends GetView<AuthController> {
               ),
               elevation: 0,
             ),
-            onPressed: controller.isOtpComplete
+            onPressed: controller.email.value != ''
                 ? () {
-                    Get.toNamed(RouteNames.accountInfo);
+                    controller.nextPage();
                   }
                 : null,
             child: Text(
-              'Verify Your Number',
+              'Continue',
               style: TextStyles.titleMedium.copyWith(
                 color: controller.isOtpComplete ? Colors.white : Colors.grey,
               ),

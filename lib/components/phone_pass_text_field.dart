@@ -4,14 +4,22 @@ import 'package:mtest_app/utils/dimensions.dart';
 
 class PhonePassTextField extends StatefulWidget {
   final bool isPassword;
+  final bool? isEmail;
   final TextEditingController? controller;
   final Function(String)? onChanged;
+  final String hintText;
+  final Widget prefixIcon;
+  final TextInputType textInputType;
 
   const PhonePassTextField({
     super.key,
     this.isPassword = false,
     this.controller,
     this.onChanged,
+    this.isEmail = false,
+    required this.hintText,
+    required this.prefixIcon,
+    required this.textInputType,
   });
 
   @override
@@ -44,8 +52,9 @@ class _PhonePassTextFieldState extends State<PhonePassTextField> {
         controller: widget.controller,
         maxLength: 8,
         obscureText: widget.isPassword ? _obscureText : false,
-        keyboardType:
-            widget.isPassword ? TextInputType.text : TextInputType.phone,
+        keyboardType: widget.textInputType,
+        // widget.isEmail == true ?
+        //     widget.isPassword ? TextInputType.text : TextInputType.phone,
         style: const TextStyle(fontSize: 14),
         onChanged: widget.onChanged,
         decoration: InputDecoration(
@@ -54,14 +63,12 @@ class _PhonePassTextFieldState extends State<PhonePassTextField> {
               const EdgeInsets.symmetric(vertical: 10, horizontal: 12),
           border: InputBorder.none,
           counterText: '',
-          hintText: widget.isPassword ? '********' : 'Mobile number',
+          hintText: widget.hintText,
           hintStyle: TextStyles.headlineSmall.copyWith(
             fontWeight: FontWeight.w400,
             color: Colors.grey[400],
           ),
-          prefixIcon: widget.isPassword
-              ? Icon(Icons.lock_outline, size: 20, color: Colors.grey[500])
-              : null,
+          prefixIcon: widget.prefixIcon,
           suffixIcon: widget.isPassword
               ? IconButton(
                   splashRadius: 20,

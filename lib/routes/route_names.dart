@@ -5,8 +5,14 @@ class RouteNames {
   /// Registration
   static const registration = 'registration';
 
+  /// Login
+  static const login = 'login';
+
   /// Create account
   static const createAccount = 'createAccount';
+
+  /// Account info
+  static const accountInfo = 'accountInfo';
 
   /// Otp page
   static const otpPage = 'otpPage';

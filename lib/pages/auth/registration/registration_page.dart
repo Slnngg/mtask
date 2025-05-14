@@ -79,10 +79,10 @@ class RegistrationPage extends StatelessWidget {
   }
 
   Widget _description() {
-    return const Text(
+    return Text(
       'Coinpay is a powerful tool that allows you to easily send, receive, and track all your transactions.',
-      style: TextStyle(
-        fontSize: 14,
+      style: TextStyles.bodyMedium.copyWith(
+        fontWeight: FontWeight.w400,
       ),
       textAlign: TextAlign.center,
     );
@@ -103,10 +103,9 @@ class RegistrationPage extends StatelessWidget {
         onPressed: () {
           Get.toNamed(RouteNames.createAccount);
         },
-        child: const Text(
+        child: Text(
           'Sign up',
-          style: TextStyle(
-            fontSize: 16,
+          style: TextStyles.bodyLarge.copyWith(
             fontWeight: FontWeight.w600,
             color: Colors.white,
           ),
@@ -131,11 +130,12 @@ class RegistrationPage extends StatelessWidget {
             ),
           ),
         ),
-        onPressed: () {},
-        child: const Text(
+        onPressed: () {
+          Get.toNamed(RouteNames.login);
+        },
+        child: Text(
           'Log in',
-          style: TextStyle(
-            fontSize: 16,
+          style: TextStyles.bodyLarge.copyWith(
             fontWeight: FontWeight.w600,
             color: SupportColors.blue,
           ),
@@ -157,27 +157,31 @@ class RegistrationPage extends StatelessWidget {
                 height: 1.4,
               ),
               children: [
-                const TextSpan(
+                TextSpan(
                   text: 'By continuing you accept our \n',
-                  style: TextStyle(fontSize: 14),
+                  style: TextStyles.bodyMedium.copyWith(
+                    fontWeight: FontWeight.w400,
+                  ),
                 ),
                 TextSpan(
                   text: 'Terms of Service',
-                  style: const TextStyle(
+                  style: TextStyles.bodyMedium.copyWith(
+                    fontWeight: FontWeight.w400,
                     color: SupportColors.blue,
-                    fontSize: 14,
                   ),
                   recognizer: TapGestureRecognizer()..onTap = () {},
                 ),
-                const TextSpan(
+                TextSpan(
                   text: ' and ',
-                  style: TextStyle(fontSize: 14),
+                  style: TextStyles.bodyMedium.copyWith(
+                    fontWeight: FontWeight.w400,
+                  ),
                 ),
                 TextSpan(
                   text: 'Privacy Policy',
-                  style: const TextStyle(
+                  style: TextStyles.bodyMedium.copyWith(
+                    fontWeight: FontWeight.w400,
                     color: SupportColors.blue,
-                    fontSize: 14,
                   ),
                   recognizer: TapGestureRecognizer()..onTap = () {},
                 ),

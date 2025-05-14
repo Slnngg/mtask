@@ -85,7 +85,12 @@ class CreateAccountPage extends GetView<AuthController> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const Text('Phone'),
+        Text(
+          'Phone',
+          style: TextStyles.bodyLarge.copyWith(
+            fontWeight: FontWeight.w400,
+          ),
+        ),
         verSpace(6),
         Row(
           children: [
@@ -116,9 +121,12 @@ class CreateAccountPage extends GetView<AuthController> {
             horSpace(10),
             Expanded(
               child: PhonePassTextField(
+                prefixIcon: const SizedBox(),
+                textInputType: TextInputType.phone,
+                hintText: 'Mobile number',
                 isPassword: false,
                 onChanged: (value) {
-                  controller.updatePhoneNumber(value);
+                  controller.phoneNumber.value = value;
                 },
               ),
             ),
@@ -132,12 +140,21 @@ class CreateAccountPage extends GetView<AuthController> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const Text('Password'),
+        Text(
+          'Password',
+          style: TextStyles.bodyLarge.copyWith(
+            fontWeight: FontWeight.w400,
+          ),
+        ),
         verSpace(6),
         PhonePassTextField(
+          prefixIcon:
+              Icon(Icons.lock_outline, size: 20, color: Colors.grey[500]),
+          hintText: '********',
+          textInputType: TextInputType.text,
           isPassword: true,
           onChanged: (value) {
-            controller.updatePassword(value);
+            controller.password.value = value;
           },
         ),
       ],
