@@ -19,4 +19,9 @@ class RouteNames {
 
   /// Home page
   static const homePage = 'homePage';
+
+  /// Send
+  static const send = 'send';
+  static const selectPurpose = 'selectPurpose';
+  static const methodView = 'methodView';
 }

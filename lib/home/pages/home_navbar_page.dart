@@ -145,7 +145,9 @@ class HomeNavPage extends StatelessWidget {
                         style: TextStyles.titleLarge,
                       ),
                       InkWell(
-                        onTap: () {},
+                        onTap: () {
+                          Get.toNamed(RouteNames.send);
+                        },
                         child: const Icon(
                           Icons.arrow_forward,
                           size: 24,

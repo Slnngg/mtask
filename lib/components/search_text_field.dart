@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mtest_app/theme/colors/support_colors.dart';
 import 'package:mtest_app/theme/text_styles/text_styles.dart';
 import 'package:mtest_app/utils/dimensions.dart';
 
@@ -6,20 +7,24 @@ class SearchTextField extends StatelessWidget {
   final TextEditingController? controller;
   final Function(String)? onChanged;
   final String hintText;
+  final bool? isSend;
 
   const SearchTextField({
     super.key,
     this.controller,
     this.onChanged,
     required this.hintText,
+    this.isSend = false,
   });
   @override
   Widget build(BuildContext context) {
     return Container(
       height: 46,
       padding: EdgeInsets.zero,
-      decoration: const BoxDecoration(
-        color: Color.fromARGB(255, 133, 144, 237),
+      decoration: BoxDecoration(
+        color: (isSend == true && isSend != null)
+            ? const Color.fromARGB(255, 238, 237, 237)
+            : const Color.fromARGB(255, 133, 144, 237),
         borderRadius: Dimensions.borderRadius50,
       ),
       child: TextField(
@@ -38,11 +43,15 @@ class SearchTextField extends StatelessWidget {
           hintText: hintText,
           hintStyle: TextStyles.headlineSmall.copyWith(
             fontWeight: FontWeight.w400,
-            color: Colors.white,
+            color: (isSend == true && isSend != null)
+                ? const Color.fromARGB(255, 196, 195, 195)
+                : Colors.white,
           ),
-          prefixIcon: const Icon(
+          prefixIcon: Icon(
             Icons.search,
-            color: Colors.white,
+            color: (isSend == true && isSend != null)
+                ? const Color.fromARGB(255, 196, 195, 195)
+                : Colors.white,
           ),
         ),
       ),

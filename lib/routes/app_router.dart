@@ -9,6 +9,10 @@ import 'package:mtest_app/pages/auth/registration/create_account/create_account_
 import 'package:mtest_app/pages/auth/registration/otp/otp_page.dart';
 import 'package:mtest_app/pages/auth/registration/registration_page.dart';
 import 'package:mtest_app/home/home_page.dart';
+import 'package:mtest_app/pages/send/controller/method_view.dart';
+import 'package:mtest_app/pages/send/controller/send_binding.dart';
+import 'package:mtest_app/pages/send/select_purpose_steps_page.dart';
+import 'package:mtest_app/pages/send/send_page.dart';
 import 'package:mtest_app/pages/splash/controller/splash_binding.dart';
 import 'package:mtest_app/pages/splash/splash_screen.dart';
 import 'package:mtest_app/routes/route_names.dart';
@@ -59,11 +63,31 @@ class AppRouter {
     ),
 
     /// HomePage
-
     GetPage(
       name: '/${RouteNames.homePage}',
       page: () => HomePage(),
       binding: HomeBinding(),
+    ),
+
+    /// Send page
+    GetPage(
+      name: '/${RouteNames.send}',
+      page: () => SendPage(),
+      binding: SendBinding(),
+    ),
+
+    /// Select Purpose page
+    GetPage(
+      name: '/${RouteNames.selectPurpose}',
+      page: () => SelectPurposePage(),
+      binding: SendBinding(),
+    ),
+
+    /// Method page
+    GetPage(
+      name: '/${RouteNames.methodView}',
+      page: () => MethodViewPage(),
+      binding: SendBinding(),
     ),
   ];
 }

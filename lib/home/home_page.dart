@@ -26,7 +26,7 @@ class _HomePageState extends State<HomePage> {
   ];
 
   @override
-  Widget build(BuildContext context) {
+Widget build(BuildContext contexta) {
     return Scaffold(
       backgroundColor: SupportColors.backgroundColor,
       body: _pages[_currentIndex],
