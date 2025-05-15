@@ -1,12 +1,14 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:get/get_navigation/src/routes/get_route.dart';
+import 'package:mtest_app/home/controller/home_binding.dart';
 import 'package:mtest_app/pages/auth/controller/auth_binding.dart';
 import 'package:mtest_app/pages/auth/login/login_page.dart';
 import 'package:mtest_app/pages/auth/registration/account_info/account_info_page.dart';
 import 'package:mtest_app/pages/auth/registration/create_account/create_account_page.dart';
 import 'package:mtest_app/pages/auth/registration/otp/otp_page.dart';
 import 'package:mtest_app/pages/auth/registration/registration_page.dart';
+import 'package:mtest_app/home/home_page.dart';
 import 'package:mtest_app/pages/splash/controller/splash_binding.dart';
 import 'package:mtest_app/pages/splash/splash_screen.dart';
 import 'package:mtest_app/routes/route_names.dart';
@@ -54,6 +56,14 @@ class AppRouter {
       name: '/${RouteNames.otpPage}',
       page: () => const OtpPage(),
       binding: AuthBinding(),
+    ),
+
+    /// HomePage
+
+    GetPage(
+      name: '/${RouteNames.homePage}',
+      page: () => HomePage(),
+      binding: HomeBinding(),
     ),
   ];
 }

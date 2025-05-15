@@ -1,0 +1,51 @@
+import 'package:flutter/material.dart';
+import 'package:mtest_app/theme/text_styles/text_styles.dart';
+import 'package:mtest_app/utils/dimensions.dart';
+
+class SearchTextField extends StatelessWidget {
+  final TextEditingController? controller;
+  final Function(String)? onChanged;
+  final String hintText;
+
+  const SearchTextField({
+    super.key,
+    this.controller,
+    this.onChanged,
+    required this.hintText,
+  });
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: 46,
+      padding: EdgeInsets.zero,
+      decoration: const BoxDecoration(
+        color: Color.fromARGB(255, 133, 144, 237),
+        borderRadius: Dimensions.borderRadius50,
+      ),
+      child: TextField(
+        controller: controller,
+        maxLength: 8,
+        obscureText: false,
+        keyboardType: TextInputType.text,
+        style: const TextStyle(fontSize: 14),
+        onChanged: onChanged,
+        decoration: InputDecoration(
+          isCollapsed: true,
+          contentPadding:
+              const EdgeInsets.symmetric(vertical: 10, horizontal: 12),
+          border: InputBorder.none,
+          counterText: '',
+          hintText: hintText,
+          hintStyle: TextStyles.headlineSmall.copyWith(
+            fontWeight: FontWeight.w400,
+            color: Colors.white,
+          ),
+          prefixIcon: const Icon(
+            Icons.search,
+            color: Colors.white,
+          ),
+        ),
+      ),
+    );
+  }
+}

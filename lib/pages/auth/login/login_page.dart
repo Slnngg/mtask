@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:mtest_app/components/phone_pass_text_field.dart';
 import 'package:mtest_app/pages/auth/controller/auth_controller.dart';
+import 'package:mtest_app/routes/route_names.dart';
 import 'package:mtest_app/theme/colors/support_colors.dart';
 import 'package:mtest_app/theme/text_styles/text_styles.dart';
 import 'package:mtest_app/utils/constants.dart';
@@ -148,7 +149,12 @@ class LoginPage extends GetView<AuthController> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const Text('Password'),
+        Text(
+          'Password',
+          style: TextStyles.bodyLarge.copyWith(
+            fontWeight: FontWeight.w400,
+          ),
+        ),
         verSpace(6),
         PhonePassTextField(
           prefixIcon:
@@ -177,7 +183,11 @@ class LoginPage extends GetView<AuthController> {
             ),
             elevation: 0,
           ),
-          onPressed: controller.isFormComplete ? () {} : null,
+          onPressed: controller.isFormComplete
+              ? () {
+                  Get.toNamed(RouteNames.homePage);
+                }
+              : null,
           child: const Text(
             'Log in',
             style: TextStyle(

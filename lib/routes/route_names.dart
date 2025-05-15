@@ -16,4 +16,7 @@ class RouteNames {
 
   /// Otp page
   static const otpPage = 'otpPage';
+
+  /// Home page
+  static const homePage = 'homePage';
 }
