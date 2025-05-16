@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:mtest_app/theme/colors/support_colors.dart';
 import 'package:mtest_app/theme/text_styles/text_styles.dart';
 import 'package:mtest_app/utils/dimensions.dart';
 

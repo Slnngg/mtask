@@ -211,7 +211,9 @@ class SendPage extends GetView<SendController> {
     return Column(
       children: [
         InkWell(
-          onTap: () {},
+          onTap: () {
+            Get.toNamed(RouteNames.qrScanner);
+          },
           child: Container(
             decoration: const BoxDecoration(
               color: SupportColors.blue,
@@ -227,7 +229,7 @@ class SendPage extends GetView<SendController> {
         ),
         verSpace(6),
         Text(
-          'Scan Pay',
+          'Scan to Pay',
           style: TextStyles.bodyLarge.copyWith(
             fontWeight: FontWeight.w400,
           ),

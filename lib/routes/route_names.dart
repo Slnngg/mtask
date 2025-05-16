@@ -24,4 +24,8 @@ class RouteNames {
   static const send = 'send';
   static const selectPurpose = 'selectPurpose';
   static const methodView = 'methodView';
+  static const paymentMethodView = 'paymentMethodView';
+
+  /// QPay scanner
+  static const qrScanner = 'qrScanner';
 }

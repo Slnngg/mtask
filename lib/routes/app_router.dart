@@ -10,6 +10,7 @@ import 'package:mtest_app/pages/auth/registration/otp/otp_page.dart';
 import 'package:mtest_app/pages/auth/registration/registration_page.dart';
 import 'package:mtest_app/home/home_page.dart';
 import 'package:mtest_app/pages/send/controller/method_view.dart';
+import 'package:mtest_app/pages/send/controller/payment_method_view.dart';
 import 'package:mtest_app/pages/send/controller/send_binding.dart';
 import 'package:mtest_app/pages/send/select_purpose_steps_page.dart';
 import 'package:mtest_app/pages/send/send_page.dart';
@@ -89,5 +90,19 @@ class AppRouter {
       page: () => MethodViewPage(),
       binding: SendBinding(),
     ),
+
+    /// Payment method page
+    GetPage(
+      name: '/${RouteNames.paymentMethodView}',
+      page: () => PaymentMethodView(),
+      binding: SendBinding(),
+    ),
+
+    /// QR Scanner page
+    // GetPage(
+    //   name: '/${RouteNames.qrScanner}',
+    //   page: () => QRScannerScreen(),
+    //   binding: SendBinding(),
+    // ),
   ];
 }
