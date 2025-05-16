@@ -9,6 +9,7 @@ import 'package:mtest_app/pages/auth/registration/create_account/create_account_
 import 'package:mtest_app/pages/auth/registration/otp/otp_page.dart';
 import 'package:mtest_app/pages/auth/registration/registration_page.dart';
 import 'package:mtest_app/home/home_page.dart';
+import 'package:mtest_app/pages/error/error_page.dart';
 import 'package:mtest_app/pages/send/controller/method_view.dart';
 import 'package:mtest_app/pages/send/controller/payment_method_view.dart';
 import 'package:mtest_app/pages/send/controller/send_binding.dart';
@@ -104,5 +105,12 @@ class AppRouter {
     //   page: () => QRScannerScreen(),
     //   binding: SendBinding(),
     // ),
+
+    /// Error page
+    GetPage(
+      name: '/${RouteNames.errorPage}',
+      page: () => ErrorPage(),
+      binding: SendBinding(),
+    ),
   ];
 }

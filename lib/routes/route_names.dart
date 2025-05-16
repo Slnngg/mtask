@@ -28,4 +28,7 @@ class RouteNames {
 
   /// QPay scanner
   static const qrScanner = 'qrScanner';
+
+  /// Error screen
+  static const errorPage = 'errorPage';
 }
