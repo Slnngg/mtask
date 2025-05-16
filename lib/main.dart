@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
-      initialRoute: '/${RouteNames.errorPage}', //splash
+      initialRoute: '/${RouteNames.splash}',
       getPages: AppRouter.routes,
     );
   }

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:mtest_app/components/custom_widgets.dart';
 import 'package:mtest_app/components/phone_pass_text_field.dart';
 import 'package:mtest_app/pages/auth/controller/auth_controller.dart';
 import 'package:mtest_app/theme/colors/support_colors.dart';
@@ -7,13 +8,13 @@ import 'package:mtest_app/theme/text_styles/text_styles.dart';
 import 'package:mtest_app/utils/constants.dart';
 import 'package:mtest_app/utils/dimensions.dart';
 
-class PersonalInfoPage extends GetView<AuthController> {
+class PersonalInfoPage extends GetView<AuthController> with CommonWidgets {
   const PersonalInfoPage({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: appBar(),
+      appBar: commonAppBar(),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
@@ -24,7 +25,10 @@ class PersonalInfoPage extends GetView<AuthController> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     /// Title and description section
-                    titleDesc(),
+                    titleDesc(
+                      'Add your personal info',
+                      'This info needs to be accurate with your ID document',
+                    ),
                     verSpace(18),
 
                     /// Name section
@@ -47,42 +51,6 @@ class PersonalInfoPage extends GetView<AuthController> {
           ],
         ),
       ),
-    );
-  }
-
-  PreferredSizeWidget appBar() {
-    return AppBar(
-      leading: InkWell(
-        onTap: () {
-          Get.back();
-        },
-        child: const Icon(
-          Icons.arrow_back_ios_new,
-          size: 16,
-        ),
-      ),
-    );
-  }
-
-  Widget titleDesc() {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text(
-          'Add your personal info',
-          style: TextStyles.headlineMedium.copyWith(
-            fontWeight: FontWeight.bold,
-          ),
-        ),
-        verSpace(4),
-        Text(
-          'This info needs to be accurate with your ID document',
-          style: TextStyles.headlineSmall.copyWith(
-            fontWeight: FontWeight.w400,
-            color: Colors.grey[700],
-          ),
-        ),
-      ],
     );
   }
 

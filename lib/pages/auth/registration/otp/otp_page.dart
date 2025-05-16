@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_navigation/get_navigation.dart';
 import 'package:get/get_state_manager/get_state_manager.dart';
+import 'package:mtest_app/components/custom_widgets.dart';
 import 'package:mtest_app/components/otp_input_text_field.dart';
 import 'package:mtest_app/pages/auth/controller/auth_controller.dart';
 import 'package:mtest_app/routes/route_names.dart';
@@ -11,13 +12,13 @@ import 'package:mtest_app/theme/text_styles/text_styles.dart';
 import 'package:mtest_app/utils/constants.dart';
 import 'package:mtest_app/utils/dimensions.dart';
 
-class OtpPage extends GetView<AuthController> {
+class OtpPage extends GetView<AuthController> with CommonWidgets {
   const OtpPage({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: _appBar(),
+      appBar: commonAppBar(),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
@@ -27,7 +28,11 @@ class OtpPage extends GetView<AuthController> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   /// Title and description section
-                  _titleDesc(),
+                  // _titleDesc(),
+                  titleDesc(
+                    'Confirm your phone',
+                    'We send 6 digits to +976 ${controller.phoneNumber.value}',
+                  ),
                   verSpace(60),
 
                   /// Otp section
@@ -45,42 +50,6 @@ class OtpPage extends GetView<AuthController> {
           ],
         ),
       ),
-    );
-  }
-
-  PreferredSizeWidget _appBar() {
-    return AppBar(
-      leading: InkWell(
-        onTap: () {
-          Get.back();
-        },
-        child: const Icon(
-          Icons.arrow_back_ios_new,
-          size: 16,
-        ),
-      ),
-    );
-  }
-
-  Widget _titleDesc() {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text(
-          'Confirm your phone',
-          style: TextStyles.headlineMedium.copyWith(
-            fontWeight: FontWeight.bold,
-          ),
-        ),
-        verSpace(4),
-        Text(
-          'We send 6 digits to +976 ${controller.phoneNumber.value}',
-          style: TextStyles.headlineSmall.copyWith(
-            fontWeight: FontWeight.w400,
-            color: Colors.grey[700],
-          ),
-        ),
-      ],
     );
   }
 

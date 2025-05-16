@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:mtest_app/components/custom_widgets.dart';
 import 'package:mtest_app/pages/send/controller/send_controller.dart';
 import 'package:mtest_app/routes/route_names.dart';
 import 'package:mtest_app/theme/colors/support_colors.dart';
@@ -7,14 +8,14 @@ import 'package:mtest_app/theme/text_styles/text_styles.dart';
 import 'package:mtest_app/utils/constants.dart';
 import 'package:mtest_app/utils/dimensions.dart';
 
-class SelectPurposePage extends GetView<SendController> {
+class SelectPurposePage extends GetView<SendController> with CommonWidgets {
   SelectPurposePage({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: SupportColors.backgroundColor,
-      appBar: _appBar(),
+      appBar: commonAppBar(isGrey: true),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
@@ -23,7 +24,10 @@ class SelectPurposePage extends GetView<SendController> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 /// Title and description section
-                _titleDesc(),
+                titleDesc(
+                  'Select a Purpose',
+                  'Select a Method for Sending Money',
+                ),
                 verSpace(18),
 
                 /// Choose method section
@@ -33,43 +37,6 @@ class SelectPurposePage extends GetView<SendController> {
           ],
         ),
       ),
-    );
-  }
-
-  PreferredSizeWidget _appBar() {
-    return AppBar(
-      backgroundColor: SupportColors.backgroundColor,
-      leading: InkWell(
-        onTap: () {
-          Get.back();
-        },
-        child: const Icon(
-          Icons.arrow_back_ios_new,
-          size: 16,
-        ),
-      ),
-    );
-  }
-
-  Widget _titleDesc() {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text(
-          'Select a Purpose',
-          style: TextStyles.headlineMedium.copyWith(
-            fontWeight: FontWeight.bold,
-          ),
-        ),
-        verSpace(4),
-        Text(
-          'Select a Method for Sending Money',
-          style: TextStyles.headlineSmall.copyWith(
-            fontWeight: FontWeight.w400,
-            color: Colors.grey[700],
-          ),
-        ),
-      ],
     );
   }
 
