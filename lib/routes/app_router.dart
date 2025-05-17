@@ -1,14 +1,14 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:get/get_navigation/src/routes/get_route.dart';
-import 'package:mtest_app/home/controller/home_binding.dart';
+import 'package:mtest_app/pages/home/controller/home_binding.dart';
 import 'package:mtest_app/pages/auth/controller/auth_binding.dart';
 import 'package:mtest_app/pages/auth/login/login_page.dart';
 import 'package:mtest_app/pages/auth/registration/account_info/account_info_page.dart';
 import 'package:mtest_app/pages/auth/registration/create_account/create_account_page.dart';
 import 'package:mtest_app/pages/auth/registration/otp/otp_page.dart';
 import 'package:mtest_app/pages/auth/registration/registration_page.dart';
-import 'package:mtest_app/home/home_page.dart';
+import 'package:mtest_app/pages/home/home_page.dart';
 import 'package:mtest_app/pages/error/error_page.dart';
 import 'package:mtest_app/pages/send/controller/method_view.dart';
 import 'package:mtest_app/pages/send/controller/payment_method_view.dart';

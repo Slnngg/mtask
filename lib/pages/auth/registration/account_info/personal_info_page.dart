@@ -93,7 +93,7 @@ class PersonalInfoPage extends GetView<AuthController> with CommonWidgets {
         PhonePassTextField(
           prefixIcon: const SizedBox(),
           hintText: '@username',
-          textInputType: TextInputType.phone,
+          textInputType: TextInputType.text,
           isEmail: true,
           isPassword: false,
           onChanged: (value) {
@@ -119,9 +119,9 @@ class PersonalInfoPage extends GetView<AuthController> with CommonWidgets {
           onTap: () async {
             controller.dateOfBirth.value = await showDatePicker(
               context: context,
-              initialDate: DateTime(2000),
-              firstDate: DateTime(1900),
-              lastDate: DateTime.now(),
+              initialDate: DateTime.now(),
+              firstDate: DateTime.now(),
+              lastDate: DateTime(2030),
               builder: (context, child) {
                 return Theme(
                   data: Theme.of(context).copyWith(
@@ -194,7 +194,7 @@ class PersonalInfoPage extends GetView<AuthController> with CommonWidgets {
             ),
             onPressed: (controller.fullName.value != '' &&
                     controller.userName.value != '' &&
-                    controller.dateOfBirth.value.toString() != '')
+                    controller.dateOfBirth.value != null)
                 ? () {
                     controller.nextPage();
                   }

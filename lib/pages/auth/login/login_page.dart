@@ -152,8 +152,22 @@ class LoginPage extends GetView<AuthController> with CommonWidgets {
             elevation: 0,
           ),
           onPressed: controller.isFormComplete
-              ? () {
-                  Get.toNamed(RouteNames.homePage);
+              ? () async {
+                  bool success = await controller.login();
+                  if (success) {
+                    Get.toNamed(RouteNames.homePage);
+                  } else {
+                    Get.snackbar(
+                      'Login Failed',
+                      'Invalid phone number or password',
+                      backgroundColor: Colors.red.withOpacity(0.4),
+                      colorText: Colors.red,
+                      snackPosition: SnackPosition.TOP,
+                      margin: const EdgeInsets.all(16),
+                      borderRadius: 12,
+                      duration: const Duration(seconds: 2),
+                    );
+                  }
                 }
               : null,
           child: const Text(

@@ -134,7 +134,8 @@ class CountryPage extends GetView<AuthController> with CommonWidgets {
               elevation: 0,
             ),
             onPressed: controller.selectedCountry.value != ''
-                ? () {
+                ? () async {
+                    controller.saveToDatabase();
                     Get.toNamed(RouteNames.login);
                   }
                 : null,

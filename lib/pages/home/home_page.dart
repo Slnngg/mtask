@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:mtest_app/home/pages/chat_navbar_page.dart';
-import 'package:mtest_app/home/pages/graph_navbar_page.dart';
-import 'package:mtest_app/home/pages/home_navbar_page.dart';
-import 'package:mtest_app/home/pages/profile_navbar_page.dart';
-import 'package:mtest_app/home/pages/qpay_navbar_page.dart';
+import 'package:mtest_app/pages/home/pages/chat_navbar_page.dart';
+import 'package:mtest_app/pages/home/pages/graph_navbar_page.dart';
+import 'package:mtest_app/pages/home/pages/home_navbar_page.dart';
+import 'package:mtest_app/pages/home/pages/profile_navbar_page.dart';
+import 'package:mtest_app/pages/home/pages/qpay_navbar_page.dart';
 import 'package:mtest_app/theme/colors/support_colors.dart';
 
 class HomePage extends StatefulWidget {

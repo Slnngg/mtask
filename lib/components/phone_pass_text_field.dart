@@ -53,8 +53,6 @@ class _PhonePassTextFieldState extends State<PhonePassTextField> {
         maxLength: 8,
         obscureText: widget.isPassword ? _obscureText : false,
         keyboardType: widget.textInputType,
-        // widget.isEmail == true ?
-        //     widget.isPassword ? TextInputType.text : TextInputType.phone,
         style: const TextStyle(fontSize: 14),
         onChanged: widget.onChanged,
         decoration: InputDecoration(
@@ -68,7 +66,7 @@ class _PhonePassTextFieldState extends State<PhonePassTextField> {
             fontWeight: FontWeight.w400,
             color: Colors.grey[400],
           ),
-          prefixIcon: widget.prefixIcon,
+          prefixIcon: widget.prefixIcon is! SizedBox ? widget.prefixIcon : null,
           suffixIcon: widget.isPassword
               ? IconButton(
                   splashRadius: 20,
