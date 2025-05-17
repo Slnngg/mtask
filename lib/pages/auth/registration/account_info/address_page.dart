@@ -70,7 +70,7 @@ class AddressPage extends GetView<AuthController> with CommonWidgets {
               Icon(Icons.email_outlined, size: 20, color: Colors.grey[500]),
           hintText: 'Mr.John Doe',
           textInputType: TextInputType.text,
-          isEmail: true,
+          isEmail: false,
           isPassword: false,
           onChanged: (value) {
             controller.address.value = value;
@@ -96,7 +96,7 @@ class AddressPage extends GetView<AuthController> with CommonWidgets {
               Icon(Icons.email_outlined, size: 20, color: Colors.grey[500]),
           hintText: 'City, State',
           textInputType: TextInputType.text,
-          isEmail: true,
+          isEmail: false,
           isPassword: false,
           onChanged: (value) {
             controller.city.value = value;
@@ -122,7 +122,7 @@ class AddressPage extends GetView<AuthController> with CommonWidgets {
               Icon(Icons.email_outlined, size: 20, color: Colors.grey[500]),
           hintText: 'Ex: 00000',
           textInputType: TextInputType.phone,
-          isEmail: true,
+          isEmail: false,
           isPassword: false,
           onChanged: (value) {
             controller.postCode.value = value;

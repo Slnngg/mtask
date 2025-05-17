@@ -63,7 +63,7 @@ class SplashScreen extends GetView<SplashController> {
         children: List.generate(
           controller.splashImages.length,
           (index) => AnimatedContainer(
-            duration: const Duration(milliseconds: 100),
+            duration: const Duration(milliseconds: 10),
             margin: const EdgeInsets.symmetric(horizontal: 4),
             height: 8,
             width: controller.currentPage.value != index ? 37 : 16,
@@ -99,7 +99,7 @@ class SplashScreen extends GetView<SplashController> {
         if (controller.currentPage.value < 2) {
           controller.pageController.animateToPage(
             controller.currentPage.value + 1,
-            duration: const Duration(milliseconds: 100),
+            duration: const Duration(milliseconds: 10),
             curve: Curves.easeInOut,
           );
         } else {

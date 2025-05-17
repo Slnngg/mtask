@@ -93,6 +93,7 @@ class CreateAccountPage extends GetView<AuthController> with CommonWidgets {
                 textInputType: TextInputType.phone,
                 hintText: 'Mobile number',
                 isPassword: false,
+                
                 onChanged: (value) {
                   controller.phoneNumber.value = value;
                 },
@@ -142,7 +143,8 @@ class CreateAccountPage extends GetView<AuthController> with CommonWidgets {
             ),
             elevation: 0,
           ),
-          onPressed: controller.isFormComplete
+          onPressed: (controller.isFormComplete &&
+                  controller.phoneNumber.value.length >= 8)
               ? () {
                   showDialog(
                     context: context,

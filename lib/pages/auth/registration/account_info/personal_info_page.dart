@@ -69,7 +69,7 @@ class PersonalInfoPage extends GetView<AuthController> with CommonWidgets {
           prefixIcon: const SizedBox(),
           hintText: 'Mr.John Doe',
           textInputType: TextInputType.text,
-          isEmail: true,
+          isEmail: false,
           isPassword: false,
           onChanged: (value) {
             controller.fullName.value = value;
@@ -94,7 +94,7 @@ class PersonalInfoPage extends GetView<AuthController> with CommonWidgets {
           prefixIcon: const SizedBox(),
           hintText: '@username',
           textInputType: TextInputType.text,
-          isEmail: true,
+          isEmail: false,
           isPassword: false,
           onChanged: (value) {
             controller.userName.value = value;
